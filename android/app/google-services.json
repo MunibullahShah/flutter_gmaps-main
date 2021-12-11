@@ -1,0 +1,106 @@
+{
+  "project_info": {
+    "project_number": "24514339128",
+    "firebase_url": "https://sage-wave-251008.firebaseio.com",
+    "project_id": "sage-wave-251008",
+    "storage_bucket": "sage-wave-251008.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24514339128:android:7ad7a398cec8bee0fb61cd",
+        "android_client_info": {
+          "package_name": "com.example.chat_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24514339128-mbahib96b8osumt2nn1pp53qk3iak5m3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCqbWOH2I1bUvUlSf6iuUmA5Mcr2bV81c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24514339128-mbahib96b8osumt2nn1pp53qk3iak5m3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24514339128:android:0b3dbd213240986ffb61cd",
+        "android_client_info": {
+          "package_name": "com.example.flutter_gmaps"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24514339128-mbahib96b8osumt2nn1pp53qk3iak5m3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCqbWOH2I1bUvUlSf6iuUmA5Mcr2bV81c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24514339128-mbahib96b8osumt2nn1pp53qk3iak5m3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:24514339128:android:4a9fb2254dc5427afb61cd",
+        "android_client_info": {
+          "package_name": "com.example.zameen"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "24514339128-rl1an7nu0e3ajdo4o3cqg9nu0ba8devo.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.zameen",
+            "certificate_hash": "dbc752ca935aab2c2d7a6e62e30de59f4289b6f0"
+          }
+        },
+        {
+          "client_id": "24514339128-mbahib96b8osumt2nn1pp53qk3iak5m3.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBCqbWOH2I1bUvUlSf6iuUmA5Mcr2bV81c"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "24514339128-mbahib96b8osumt2nn1pp53qk3iak5m3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

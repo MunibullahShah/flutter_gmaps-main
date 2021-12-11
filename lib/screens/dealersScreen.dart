@@ -1,0 +1,281 @@
+// ignore_for_file: file_names, prefer_const_constructors, prefer_const_literals_to_create_immutables
+
+import 'package:flutter/material.dart';
+import 'package:flutter_gmaps/helper/database.dart';
+import 'package:flutter_gmaps/models/dealerModel.dart';
+import 'package:flutter_gmaps/screens/Practice.dart';
+import 'package:flutter_gmaps/screens/aboutus.dart';
+import 'package:flutter_gmaps/screens/signin_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'package:flutter_gmaps/constants.dart';
+import 'package:flutter_gmaps/screens/ProfileScreen.dart';
+
+class DealersScreen extends StatefulWidget {
+  const DealersScreen({Key key}) : super(key: key);
+
+  @override
+  _DealersScreenState createState() => _DealersScreenState();
+}
+
+class _DealersScreenState extends State<DealersScreen> {
+  TextEditingController searchController = TextEditingController();
+
+  DatabaseMethods _db = DatabaseMethods();
+
+  List<DealerModel> dealers = [];
+
+  List<String> urls = [
+    'assets/images/IMG_0900.JPG',
+  ];
+
+  List<String> innerUrls = [
+    'assets/images/116352550-400x300.jpg',
+    'assets/images/Park-View-Homes-1024x682.jpg',
+    'assets/images/116352550-400x300.jpg',
+    'assets/images/Park-View-Homes-1024x682.jpg',
+    'assets/images/116352550-400x300.jpg',
+  ];
+
+  @override
+  void initState() {
+    getDealers();
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+      child: Scaffold(
+        backgroundColor: primaryColor,
+        appBar: AppBar(
+          backgroundColor: primaryColor,
+          title: Center(
+            child: Text("Builders"),
+          ),
+          actions: [
+            Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (builder) => Practicee()));
+                },
+                child: Icon(Icons.info),
+              ),
+            ),
+            Padding(
+              padding: EdgeInsets.only(right: 20.0),
+              child: GestureDetector(
+                onTap: () {
+                  Navigator.pushReplacement(context,
+                      MaterialPageRoute(builder: (builder) => SignIn()));
+                },
+                child: Icon(Icons.logout),
+              ),
+            ),
+          ],
+        ),
+        body: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+                color: Colors.black26,
+              ),
+              margin: EdgeInsets.fromLTRB(10, 30, 10, 15),
+              child: TextFormField(
+                controller: searchController,
+                style: TextStyle(color: Colors.grey),
+                decoration: InputDecoration(
+                  hintStyle: TextStyle(color: Colors.grey),
+                  focusColor: Colors.grey,
+                  hoverColor: Color(0xff25283a),
+                  hintText: "Search",
+                  border: OutlineInputBorder(
+                    borderRadius: BorderRadius.circular(15),
+                  ),
+                ),
+              ),
+            ),
+            Expanded(
+              child: Container(
+                child: ListView.builder(
+                    itemCount: dealers.length,
+                    itemBuilder: (BuildContext context, int index) {
+                      return Column(
+                        children: [
+                          ListTile(
+                            onTap: () {
+                              Navigator.of(context).push(MaterialPageRoute(
+                                  builder: (builder) => ProfileScreen(
+                                        dealer: dealers[index],
+                                      )));
+                            },
+                            leading: Container(
+                              height: 50,
+                              width: 50,
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(30),
+                                image: DecorationImage(
+                                  image: AssetImage(
+                                    'assets/images/IMG_0900.JPG',
+                                  ),
+                                  fit: BoxFit.fill,
+                                ),
+                              ),
+                            ),
+                            title: Text(
+                              dealers[index].name,
+                              style: TextStyle(
+                                color: Colors.white,
+                                fontWeight: FontWeight.bold,
+                              ),
+                            ),
+                            subtitle: Text(
+                              dealers[index].email,
+                              style: TextStyle(
+                                color: Colors.grey,
+                              ),
+                            ),
+                            trailing: Container(
+                              width: 90,
+                              child: Center(
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    GestureDetector(
+                                      onTap: () async {
+                                        final Uri launchUri = Uri(
+                                          scheme: 'sms',
+                                          path: dealers[index].contact,
+                                        );
+                                        try {
+                                          var bool = await launch(
+                                              launchUri.toString());
+                                        } catch (e) {
+                                          print(e);
+                                        }
+                                      },
+                                      child: Container(
+                                        height: 40,
+                                        width: 40,
+                                        decoration: BoxDecoration(
+                                          border:
+                                              Border.all(color: Colors.green),
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Icon(
+                                          Icons.chat,
+                                          color: Colors.green,
+                                          size: 20,
+                                        ),
+                                      ),
+                                    ),
+                                    SizedBox(
+                                      width: 10,
+                                    ),
+                                    GestureDetector(
+                                      onTap: () {
+                                        callTo(index);
+                                      },
+                                      child: Container(
+                                        width: 40,
+                                        height: 40,
+                                        decoration: BoxDecoration(
+                                          color: Colors.green,
+                                          borderRadius:
+                                              BorderRadius.circular(20),
+                                        ),
+                                        child: Icon(
+                                          Icons.call_outlined,
+                                          color: Colors.white,
+                                          size: 20,
+                                        ),
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ),
+                          Container(
+                              width: MediaQuery.of(context).size.width - 10,
+                              height: 120,
+                              child: ListView.builder(
+                                  scrollDirection: Axis.horizontal,
+                                  itemCount: innerUrls.length,
+                                  itemBuilder: (BuildContext context, int ind) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        Navigator.of(context).push(
+                                            MaterialPageRoute(
+                                                builder: (builder) =>
+                                                    Practice()));
+                                      },
+                                      child: Container(
+                                        margin: EdgeInsets.all(10),
+                                        width: 100,
+                                        height: 170,
+                                        decoration: BoxDecoration(
+                                          borderRadius: BorderRadius.all(
+                                            Radius.circular(16.0),
+                                          ),
+                                          image: DecorationImage(
+                                              image: AssetImage(
+                                                  'assets/images/116352550-400x300.jpg'),
+                                              fit: BoxFit.fill),
+                                        ),
+                                      ),
+                                    );
+                                  })),
+                          SizedBox(
+                            height: 20,
+                          ),
+                        ],
+                      );
+                    }),
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Future<void> smsTo() async {
+    final Uri launchUri = Uri(
+      scheme: 'sms',
+      path: "03120944035",
+    );
+    try {
+      var bool = await launch(launchUri.toString());
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  Future<void> callTo(int index) async {
+    final Uri launchUri = Uri(
+      scheme: 'tel',
+      path: dealers[index].contact,
+    );
+    try {
+      var bool = await launch(launchUri.toString());
+    } catch (e) {
+      print(e);
+    }
+  }
+
+  getDealers() async {
+    var docs = await _db.getDealers();
+    docs.forEach((element) {
+      dealers.add(DealerModel(
+          name: element.data()['name'],
+          email: element.data()['email'],
+          contact: element.data()['contact']));
+    });
+    setState(() {});
+  }
+}
