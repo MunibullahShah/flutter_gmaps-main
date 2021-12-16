@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gmaps/models/dealerModel.dart';
 import 'package:flutter_gmaps/screens/MapScreen.dart';
 
 class Practice extends StatelessWidget {
-  const Practice({Key key}) : super(key: key);
+  DealerModel dealer;
+
+  Practice({this.dealer});
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,10 @@ class Practice extends StatelessWidget {
                               onTap: () {
                                 print("Pressed");
                                 Navigator.of(context).push(MaterialPageRoute(
-                                    builder: (builder) => MapScreen()));
+                                    builder: (builder) => MapScreen(
+                                          geoPoint:
+                                              dealer.properties[0].geoPoint,
+                                        )));
                               },
                               child: Icon(
                                 Icons.location_on,
@@ -63,7 +69,7 @@ class Practice extends StatelessWidget {
                       color: Colors.blue,
                       image: DecorationImage(
                           image: new NetworkImage(
-                              "https://images.unsplash.com/photo-1599809275671-b5942cabc7a2?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80"),
+                              dealer.properties[0].propertyImages[0]),
                           fit: BoxFit.cover)),
                 ),
                 Positioned(
@@ -82,7 +88,7 @@ class Practice extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(left: 15, top: 20),
                               child: Text(
-                                "Artificial Apartment",
+                                dealer.properties[0].title,
                                 style: TextStyle(
                                     fontSize: 20, color: Colors.white),
                               ),
@@ -118,7 +124,7 @@ class Practice extends StatelessWidget {
                             Padding(
                               padding: const EdgeInsets.only(left: 6.0),
                               child: Text(
-                                "NY. New York",
+                                dealer.properties[0].locationTitle,
                                 style: TextStyle(
                                     color: Colors.white, fontSize: 12),
                               ),
@@ -148,7 +154,7 @@ class Practice extends StatelessWidget {
                                   padding:
                                       const EdgeInsets.only(top: 8.0, left: 10),
                                   child: Text(
-                                    "4 Bedrooms",
+                                    "${dealer.properties[0].bedrooms} Bedrooms",
                                     style: TextStyle(
                                         fontSize: 12, color: Colors.white),
                                   ),
@@ -174,7 +180,7 @@ class Practice extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Text(
-                                      "2 Bathrooms",
+                                      "${dealer.properties[0].bathrooms} Bathrooms",
                                       style: TextStyle(
                                           fontSize: 12, color: Colors.white),
                                     ),
@@ -201,7 +207,7 @@ class Practice extends StatelessWidget {
                                   Padding(
                                     padding: const EdgeInsets.only(top: 8.0),
                                     child: Text(
-                                      "4 Bedrooms",
+                                      "Belcony",
                                       style: TextStyle(
                                           fontSize: 12, color: Colors.white),
                                     ),
@@ -229,8 +235,7 @@ class Practice extends StatelessWidget {
                               padding:
                                   const EdgeInsets.only(left: 10.0, top: 7),
                               child: Text(
-                                "Description is the pattern of the naritive development\n"
-                                "that drive to make the viva and the extreme peak on \nunderstanding",
+                                dealer.properties[0].description,
                                 style: TextStyle(
                                     fontSize: 12, color: Colors.white),
                               ),
@@ -254,7 +259,7 @@ class Practice extends StatelessWidget {
                                           left: 20.0, top: 17),
                                       child: ClipOval(
                                         child: Image.network(
-                                          "https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80",
+                                          dealer.profilePic,
                                           width: 50,
                                           height: 50,
                                           fit: BoxFit.fill,
@@ -269,7 +274,7 @@ class Practice extends StatelessWidget {
                                           Padding(
                                             padding: const EdgeInsets.all(4.0),
                                             child: Text(
-                                              "Johnson Baker",
+                                              dealer.name,
                                               style: TextStyle(
                                                   fontSize: 20,
                                                   color: Colors.white),

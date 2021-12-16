@@ -3,6 +3,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_gmaps/helper/database.dart';
 import 'package:flutter_gmaps/models/dealerModel.dart';
+import 'package:flutter_gmaps/models/propertyModel.dart';
 import 'package:flutter_gmaps/screens/Practice.dart';
 import 'package:flutter_gmaps/screens/aboutus.dart';
 import 'package:flutter_gmaps/screens/signin_screen.dart';
@@ -23,18 +24,6 @@ class _DealersScreenState extends State<DealersScreen> {
   DatabaseMethods _db = DatabaseMethods();
 
   List<DealerModel> dealers = [];
-
-  List<String> urls = [
-    'assets/images/IMG_0900.JPG',
-  ];
-
-  List<String> innerUrls = [
-    'assets/images/116352550-400x300.jpg',
-    'assets/images/Park-View-Homes-1024x682.jpg',
-    'assets/images/116352550-400x300.jpg',
-    'assets/images/Park-View-Homes-1024x682.jpg',
-    'assets/images/116352550-400x300.jpg',
-  ];
 
   @override
   void initState() {
@@ -118,9 +107,8 @@ class _DealersScreenState extends State<DealersScreen> {
                               decoration: BoxDecoration(
                                 borderRadius: BorderRadius.circular(30),
                                 image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/IMG_0900.JPG',
-                                  ),
+                                  image:
+                                      NetworkImage(dealers[index].profilePic),
                                   fit: BoxFit.fill,
                                 ),
                               ),
@@ -205,14 +193,15 @@ class _DealersScreenState extends State<DealersScreen> {
                               height: 120,
                               child: ListView.builder(
                                   scrollDirection: Axis.horizontal,
-                                  itemCount: innerUrls.length,
+                                  itemCount: dealers[index].properties.length,
                                   itemBuilder: (BuildContext context, int ind) {
                                     return GestureDetector(
                                       onTap: () {
-                                        Navigator.of(context).push(
-                                            MaterialPageRoute(
-                                                builder: (builder) =>
-                                                    Practice()));
+                                        Navigator.of(context)
+                                            .push(MaterialPageRoute(
+                                                builder: (builder) => Practice(
+                                                      dealer: dealers[index],
+                                                    )));
                                       },
                                       child: Container(
                                         margin: EdgeInsets.all(10),
@@ -223,8 +212,9 @@ class _DealersScreenState extends State<DealersScreen> {
                                             Radius.circular(16.0),
                                           ),
                                           image: DecorationImage(
-                                              image: AssetImage(
-                                                  'assets/images/116352550-400x300.jpg'),
+                                              image: NetworkImage(dealers[index]
+                                                  .properties[ind]
+                                                  .propertyImages[ind]),
                                               fit: BoxFit.fill),
                                         ),
                                       ),
@@ -270,11 +260,26 @@ class _DealersScreenState extends State<DealersScreen> {
 
   getDealers() async {
     var docs = await _db.getDealers();
+    List<PropertyModel> properties = [];
     docs.forEach((element) {
+      element.data()['properties'].forEach((propertyElement) {
+        properties.add(PropertyModel(
+          bathrooms: propertyElement['bathrooms'],
+          bedrooms: propertyElement['bedrooms'],
+          description: propertyElement['description'],
+          locationTitle: propertyElement['location title'],
+          geoPoint: propertyElement['location'],
+          propertyImages: propertyElement['propertyImage'],
+          title: propertyElement['title'],
+        ));
+      });
       dealers.add(DealerModel(
-          name: element.data()['name'],
-          email: element.data()['email'],
-          contact: element.data()['contact']));
+        name: element.data()['name'],
+        email: element.data()['email'],
+        contact: element.data()['contact'],
+        profilePic: element.data()['profilePic'],
+        properties: properties,
+      ));
     });
     setState(() {});
   }

@@ -1,7 +1,12 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class MapScreen extends StatefulWidget {
+  GeoPoint geoPoint;
+
+  MapScreen({this.geoPoint});
+
   @override
   _MapScreenState createState() => _MapScreenState();
 }
