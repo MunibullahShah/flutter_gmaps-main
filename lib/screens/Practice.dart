@@ -63,7 +63,7 @@ class Practice extends StatelessWidget {
                       ],
                     ),
                   ),
-                  height: 245,
+                  height: 250,
                   width: MediaQuery.of(context).size.width - 0.0,
                   decoration: BoxDecoration(
                       color: Colors.blue,

@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gmaps/constants.dart';
 import 'package:flutter_gmaps/helper/firebaseMethods.dart';
 import 'package:flutter_gmaps/screens/dealersScreen.dart';
 import 'package:flutter_gmaps/screens/signup_screen.dart';
@@ -32,6 +33,7 @@ class _SignInState extends State<SignIn> {
           )
         : SafeArea(
             child: Scaffold(
+              backgroundColor: primaryColor,
               body: _isloading
                   ? Container(
                       child: Center(
@@ -44,12 +46,20 @@ class _SignInState extends State<SignIn> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           TextField(
+                            style: TextStyle(color: Colors.white),
+                            cursorColor: Colors.white,
                             controller: emailController,
                             decoration: const InputDecoration(
+                              fillColor: Colors.white,
+                              focusColor: Colors.white,
                               labelText: 'Email',
-                              border: OutlineInputBorder(),
+                              labelStyle: TextStyle(color: Colors.white),
+                              hoverColor: Colors.white,
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white)),
                               suffixIcon: Icon(
                                 Icons.email,
+                                color: Colors.white,
                               ),
                             ),
                           ),
@@ -57,13 +67,20 @@ class _SignInState extends State<SignIn> {
                             height: 30,
                           ),
                           TextField(
-                            controller: passwordController,
-                            obscureText: true,
+                            style: TextStyle(color: Colors.white),
+                            cursorColor: Colors.white,
+                            controller: emailController,
                             decoration: const InputDecoration(
+                              fillColor: Colors.white,
+                              focusColor: Colors.white,
                               labelText: 'Password',
-                              border: OutlineInputBorder(),
+                              labelStyle: TextStyle(color: Colors.white),
+                              hoverColor: Colors.white,
+                              enabledBorder: OutlineInputBorder(
+                                  borderSide: BorderSide(color: Colors.white)),
                               suffixIcon: Icon(
                                 Icons.password,
+                                color: Colors.white,
                               ),
                             ),
                           ),

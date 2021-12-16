@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_gmaps/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class abc extends StatelessWidget {
@@ -31,7 +32,7 @@ class abc extends StatelessWidget {
     final Number = '+923094412127';
 
     return Scaffold(
-      backgroundColor: const Color(0xff123456),
+      backgroundColor: primaryColor,
       body: SingleChildScrollView(
         child: Column(
           children: [
@@ -40,7 +41,7 @@ class abc extends StatelessWidget {
                 overflow: Overflow.visible,
                 children: [
                   Container(
-                    height: 400,
+                    height: MediaQuery.of(context).size.height / 2,
                     width: MediaQuery.of(context).size.width,
                     decoration: BoxDecoration(
                       image: DecorationImage(
@@ -203,10 +204,10 @@ class abc extends StatelessWidget {
                                 ),
                               ],
                             ),
-                            height: 500,
-                            width: 500,
+                            height: MediaQuery.of(context).size.height / 1.5,
+                            width: MediaQuery.of(context).size.width,
                             decoration: BoxDecoration(
-                              color: const Color(0xff123456),
+                              color: primaryColor,
                               borderRadius: BorderRadius.circular(40),
                             ))
                       ],

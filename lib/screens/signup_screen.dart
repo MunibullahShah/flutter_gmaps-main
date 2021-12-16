@@ -1,6 +1,7 @@
 // ignore_for_file: prefer_const_constructors
 
 import 'package:flutter/material.dart';
+import 'package:flutter_gmaps/constants.dart';
 import 'package:flutter_gmaps/helper/Authentication.dart';
 import 'package:flutter_gmaps/helper/database.dart';
 import 'package:flutter_gmaps/helper/firebaseMethods.dart';
@@ -56,6 +57,7 @@ class _SignUpState extends State<SignUp> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: primaryColor,
       body: isLoading
           ? Container(
               child: Center(
@@ -81,9 +83,12 @@ class _SignUpState extends State<SignUp> {
                           },
                           decoration: const InputDecoration(
                             labelText: 'Username',
-                            border: OutlineInputBorder(),
+                            labelStyle: TextStyle(color: Colors.white),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white)),
                             suffixIcon: Icon(
                               Icons.verified_user,
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -91,6 +96,7 @@ class _SignUpState extends State<SignUp> {
                           height: 30,
                         ),
                         TextFormField(
+                          style: TextStyle(color: Colors.white),
                           controller: emailEditingController,
                           validator: (val) {
                             return RegExp(
@@ -100,10 +106,14 @@ class _SignUpState extends State<SignUp> {
                                 : "Enter correct email";
                           },
                           decoration: const InputDecoration(
+                            fillColor: Colors.white,
+                            labelStyle: TextStyle(color: Colors.white),
                             labelText: 'Email',
-                            border: OutlineInputBorder(),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white)),
                             suffixIcon: Icon(
                               Icons.email,
+                              color: Colors.white,
                             ),
                           ),
                         ),
@@ -114,9 +124,12 @@ class _SignUpState extends State<SignUp> {
                           obscureText: true,
                           decoration: const InputDecoration(
                             labelText: 'Password',
-                            border: OutlineInputBorder(),
+                            labelStyle: TextStyle(color: Colors.white),
+                            enabledBorder: OutlineInputBorder(
+                                borderSide: BorderSide(color: Colors.white)),
                             suffixIcon: Icon(
                               Icons.password,
+                              color: Colors.white,
                             ),
                           ),
                           controller: passwordEditingController,
@@ -176,7 +189,7 @@ class _SignUpState extends State<SignUp> {
                     children: [
                       const Text(
                         "Already have an account? ",
-                        style: TextStyle(fontSize: 16),
+                        style: TextStyle(fontSize: 16, color: Colors.white),
                       ),
                       GestureDetector(
                         onTap: () {
