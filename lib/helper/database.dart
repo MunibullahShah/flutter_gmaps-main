@@ -14,6 +14,18 @@ class DatabaseMethods {
     });
   }
 
+  uploadDealersData(dealersMap) {
+    for (int i = 0; i < 10; i++) {
+      FirebaseFirestore.instance
+          .collection('dealers')
+          .add(dealersMap)
+          .catchError((e) {
+        print(e);
+      });
+      print("success $i");
+    }
+  }
+
   getDealers() async {
     var result = await FirebaseFirestore.instance
         .collection('dealers')

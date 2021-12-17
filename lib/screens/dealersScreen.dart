@@ -214,7 +214,7 @@ class _DealersScreenState extends State<DealersScreen> {
                                           image: DecorationImage(
                                               image: NetworkImage(dealers[index]
                                                   .properties[ind]
-                                                  .propertyImages[ind]),
+                                                  .propertyImages[0]),
                                               fit: BoxFit.fill),
                                         ),
                                       ),
@@ -260,8 +260,8 @@ class _DealersScreenState extends State<DealersScreen> {
 
   getDealers() async {
     var docs = await _db.getDealers();
-    List<PropertyModel> properties = [];
     docs.forEach((element) {
+      List<PropertyModel> properties = [];
       element.data()['properties'].forEach((propertyElement) {
         properties.add(PropertyModel(
           bathrooms: propertyElement['bathrooms'],
@@ -281,6 +281,33 @@ class _DealersScreenState extends State<DealersScreen> {
         properties: properties,
       ));
     });
+
     setState(() {});
+
+    // Map<String, dynamic> uploadProperty = {
+    //   "bathrooms": dealers[0].properties[0].bathrooms,
+    //   'bedrooms': properties[0].bedrooms,
+    //   'description': properties[0].description,
+    //   'location title': properties[0].locationTitle,
+    //   'location': properties[0].geoPoint,
+    //   'propertyImage': properties[0].propertyImages,
+    //   'title': properties[0].title,
+    // };
+    //
+    // List<Map<String, dynamic>> propertyMapList = [
+    //   uploadProperty,
+    //   uploadProperty,
+    //   uploadProperty
+    // ];
+    //
+    // Map<String, dynamic> uploadDoc = {
+    //   'properties': propertyMapList,
+    //   "name": dealers[0].name,
+    //   'contact': dealers[0].contact,
+    //   'email': dealers[0].email,
+    //   "profilePic": dealers[0].profilePic
+    // };
+
+    // _db.uploadDealersData(uploadDoc);
   }
 }

@@ -69,7 +69,8 @@ class _SignInState extends State<SignIn> {
                           TextField(
                             style: TextStyle(color: Colors.white),
                             cursorColor: Colors.white,
-                            controller: emailController,
+                            controller: passwordController,
+                            obscureText: true,
                             decoration: const InputDecoration(
                               fillColor: Colors.white,
                               focusColor: Colors.white,

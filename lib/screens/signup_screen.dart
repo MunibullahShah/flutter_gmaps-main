@@ -2,7 +2,6 @@
 
 import 'package:flutter/material.dart';
 import 'package:flutter_gmaps/constants.dart';
-import 'package:flutter_gmaps/helper/Authentication.dart';
 import 'package:flutter_gmaps/helper/database.dart';
 import 'package:flutter_gmaps/helper/firebaseMethods.dart';
 import 'package:flutter_gmaps/screens/dealersScreen.dart';
@@ -82,6 +81,8 @@ class _SignUpState extends State<SignUp> {
                                 : null;
                           },
                           decoration: const InputDecoration(
+                            fillColor: Colors.white,
+                            focusColor: Colors.white,
                             labelText: 'Username',
                             labelStyle: TextStyle(color: Colors.white),
                             enabledBorder: OutlineInputBorder(
