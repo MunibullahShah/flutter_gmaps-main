@@ -63,7 +63,7 @@ class Practice extends StatelessWidget {
                       ],
                     ),
                   ),
-                  height: 250,
+                  height: MediaQuery.of(context).size.height / 1.5,
                   width: MediaQuery.of(context).size.width - 0.0,
                   decoration: BoxDecoration(
                       color: Colors.blue,
@@ -73,7 +73,7 @@ class Practice extends StatelessWidget {
                           fit: BoxFit.cover)),
                 ),
                 Positioned(
-                  top: 222,
+                  top: 380,
                   child: Container(
                     height: 700,
                     width: MediaQuery.of(context).size.width,
@@ -95,7 +95,7 @@ class Practice extends StatelessWidget {
                             ),
                             Padding(
                               padding:
-                                  const EdgeInsets.only(left: 10.0, top: 35),
+                                  const EdgeInsets.only(left: 180.0, top: 35),
                               child: Container(
                                 child: Icon(
                                   Icons.save_rounded,

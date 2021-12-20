@@ -58,11 +58,10 @@ class _ProfileScreenState extends State<ProfileScreen> {
               ),
               Positioned(
                 child: Container(
-                  decoration: const BoxDecoration(
+                  decoration: BoxDecoration(
                     color: Colors.grey,
                     image: DecorationImage(
-                        image:
-                            NetworkImage("https://www.fillmurray.com/640/360"),
+                        image: NetworkImage(widget.dealer.profilePic),
                         fit: BoxFit.fill),
                   ),
                   height: MediaQuery.of(context).size.height * 0.28,
@@ -414,10 +413,9 @@ class _ProfileScreenState extends State<ProfileScreen> {
                     child: Container(
                       height: MediaQuery.of(context).size.height / 6.83,
                       width: MediaQuery.of(context).size.width / 4.11,
-                      decoration: const BoxDecoration(
+                      decoration: BoxDecoration(
                         image: DecorationImage(
-                            image: NetworkImage(
-                                "https://www.placecage.com/200/200")),
+                            image: NetworkImage(widget.dealer.profilePic)),
                         color: Colors.grey,
                         borderRadius: BorderRadius.all(Radius.circular(10)),
                       ),

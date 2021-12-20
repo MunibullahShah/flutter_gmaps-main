@@ -6,7 +6,7 @@ import 'package:flutter_gmaps/models/dealerModel.dart';
 import 'package:flutter_gmaps/models/propertyModel.dart';
 import 'package:flutter_gmaps/screens/Practice.dart';
 import 'package:flutter_gmaps/screens/aboutus.dart';
-import 'package:flutter_gmaps/screens/signin_screen.dart';
+import 'package:flutter_gmaps/screens/signin_screen111.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter_gmaps/constants.dart';
 import 'package:flutter_gmaps/screens/ProfileScreen.dart';
