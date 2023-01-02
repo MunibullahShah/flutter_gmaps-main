@@ -15,7 +15,7 @@ class Practice extends StatelessWidget {
         children: [
           SingleChildScrollView(
             child: Stack(
-              // overflow: Overflow.visible,
+              overflow: Overflow.visible,
               children: [
                 Container(
                   child: Center(
