@@ -38,7 +38,7 @@ class abc extends StatelessWidget {
           children: [
             SingleChildScrollView(
               child: Stack(
-                overflow: Overflow.visible,
+                // overflow: Overflow.visible,
                 children: [
                   Container(
                     height: MediaQuery.of(context).size.height / 2,
