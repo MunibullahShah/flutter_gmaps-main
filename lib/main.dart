@@ -3,7 +3,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gmaps/screens/signin_screen.dart';
 import 'package:get/get.dart';
 
-void main() {
+Future<void> main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initFirebase();
   runApp(MyApp());
 }
 
@@ -21,9 +23,6 @@ class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-      onInit: () async {
-        await initFirebase();
-      },
       title: 'Flutter Google Maps',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
