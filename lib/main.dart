@@ -1,7 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gmaps/screens/signin_screen111.dart';
-
+import 'package:flutter_gmaps/screens/MapScreen.dart';
+import 'package:flutter_gmaps/screens/dealersScreen.dart';
 void main() {
   runApp(MyApp());
 }
@@ -26,7 +26,7 @@ class _MyAppState extends State<MyApp> {
       theme: ThemeData(
         primaryColor: Colors.white,
       ),
-      home: SignIn(),
+      home: MapScreen(),
     );
   }
 

@@ -1,43 +1,42 @@
-// ignore_for_file: file_names
+// // ignore_for_file: file_names
 
-import 'package:firebase_core/firebase_core.dart';
-import 'package:flutter/material.dart';
-import 'package:flutter_gmaps/screens/signup_screen111.dart';
-import 'package:flutter_gmaps/screens/signin_screen111.dart';
+// import 'package:firebase_core/firebase_core.dart';
+// import 'package:flutter/material.dart';
 
-class Authenticate extends StatefulWidget {
-  const Authenticate({Key key}) : super(key: key);
 
-  @override
-  _AuthenticateState createState() => _AuthenticateState();
-}
+// class Authenticate extends StatefulWidget {
+//   const Authenticate({Key key}) : super(key: key);
 
-class _AuthenticateState extends State<Authenticate> {
-  bool showSignIn = false;
-  bool loading = true;
+//   @override
+//   _AuthenticateState createState() => _AuthenticateState();
+// }
 
-  toggleView() {
-    setState(() {
-      showSignIn = !showSignIn;
-    });
-  }
+// class _AuthenticateState extends State<Authenticate> {
+//   bool showSignIn = false;
+//   bool loading = true;
 
-  @override
-  void initState() {
-    super.initState();
-  }
+//   toggleView() {
+//     setState(() {
+//       showSignIn = !showSignIn;
+//     });
+//   }
 
-  @override
-  Widget build(BuildContext context) {
-    return loading
-        ? Container(
-            height: MediaQuery.of(context).size.height,
-            width: MediaQuery.of(context).size.width,
-            color: Colors.white,
-            child: const CircularProgressIndicator(),
-          )
-        : showSignIn
-            ? SignIn()
-            : SignUp();
-  }
-}
+//   @override
+//   void initState() {
+//     super.initState();
+//   }
+
+//   @override
+//   Widget build(BuildContext context) {
+//     return loading
+//         ? Container(
+//             height: MediaQuery.of(context).size.height,
+//             width: MediaQuery.of(context).size.width,
+//             color: Colors.white,
+//             child: const CircularProgressIndicator(),
+//           )
+//         : showSignIn
+//             ? SignIn()
+//             : SignUp();
+//   }
+// }

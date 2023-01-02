@@ -1,0 +1,34 @@
+{
+    "logs": [
+        {
+            "outputFile": "D:\\flutter_gmaps-main\\build\\url_launcher_android\\intermediates\\res\\merged\\debug\\values-vi\\values-vi.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Muneeb\\.gradle\\caches\\transforms-2\\files-2.1\\b5eb0fd05a3dc37f0eecb21874e1998c\\core-1.6.0\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        },
+        {
+            "outputFile": "D:\\flutter_gmaps-main\\build\\url_launcher_android\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-vi\\values-vi.xml",
+            "map": [
+                {
+                    "source": "C:\\Users\\Muneeb\\.gradle\\caches\\transforms-2\\files-2.1\\b5eb0fd05a3dc37f0eecb21874e1998c\\core-1.6.0\\res\\values-vi\\values-vi.xml",
+                    "from": {
+                        "startLines": "2",
+                        "startColumns": "4",
+                        "startOffsets": "55",
+                        "endColumns": "100",
+                        "endOffsets": "151"
+                    }
+                }
+            ]
+        }
+    ]
+}
