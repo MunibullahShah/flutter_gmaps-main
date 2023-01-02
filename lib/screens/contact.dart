@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gmaps/constants.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-class abc extends StatelessWidget {
-  const abc({Key key}) : super(key: key);
+class ContactScreen extends StatelessWidget {
+  const ContactScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

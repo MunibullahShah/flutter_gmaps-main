@@ -4,7 +4,7 @@ import 'package:flutter_gmaps/constants.dart';
 import 'package:flutter_gmaps/helper/database.dart';
 import 'package:flutter_gmaps/helper/firebaseMethods.dart';
 import 'package:flutter_gmaps/screens/dealersScreen.dart';
-import 'package:flutter_gmaps/screens/signin_screen111.dart';
+import 'package:flutter_gmaps/screens/signin_screen.dart';
 
 class SignUp extends StatefulWidget {
   SignUp();
@@ -94,7 +94,7 @@ class _SignUpState extends State<SignUp> {
                               borderRadius:
                                   BorderRadius.all(Radius.circular(10))),
                           child: TextFormField(
-                            style: TextStyle(fontSize: 16),
+                            style: TextStyle(fontSize: 16, color: Colors.white),
                             controller: usernameEditingController,
                             validator: (val) {
                               return val.isEmpty || val.length < 3

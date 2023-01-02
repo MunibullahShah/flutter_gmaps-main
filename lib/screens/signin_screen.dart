@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gmaps/constants.dart';
 import 'package:flutter_gmaps/helper/firebaseMethods.dart';
 import 'package:flutter_gmaps/screens/dealersScreen.dart';
-import 'package:flutter_gmaps/screens/signup_screen111.dart';
+import 'package:flutter_gmaps/screens/signup_screen.dart';
 
 class SignIn extends StatefulWidget {
   SignIn();
@@ -202,9 +202,6 @@ class _SignInState extends State<SignIn> {
             ),
           );
   }
-
-  // signInn(String email, String password) {
-  // }
 
   AuthMethods authMethods = AuthMethods();
   TextEditingController userNameController = TextEditingController();

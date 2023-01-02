@@ -1,6 +1,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gmaps/screens/signin_screen111.dart';
+import 'package:flutter_gmaps/screens/signin_screen.dart';
+import 'package:get/get.dart';
 
 void main() {
   runApp(MyApp());
@@ -14,13 +15,15 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   void initState() {
-    initFirebase();
     super.initState();
   }
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
+      onInit: () async {
+        await initFirebase();
+      },
       title: 'Flutter Google Maps',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -29,15 +32,14 @@ class _MyAppState extends State<MyApp> {
       home: SignIn(),
     );
   }
+}
 
-  initFirebase() async {
-    try {
-      await Firebase.initializeApp().whenComplete(() {
-        print("Completed");
-      });
-    } catch (e) {
-      print(e);
-    }
-    setState(() {});
+initFirebase() async {
+  try {
+    await Firebase.initializeApp().whenComplete(() {
+      print("Completed");
+    });
+  } catch (e) {
+    print(e);
   }
 }

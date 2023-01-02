@@ -2,8 +2,8 @@
 
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_gmaps/screens/signup_screen111.dart';
-import 'package:flutter_gmaps/screens/signin_screen111.dart';
+import 'package:flutter_gmaps/screens/signin_screen.dart';
+import 'package:flutter_gmaps/screens/signup_screen.dart';
 
 class Authenticate extends StatefulWidget {
   const Authenticate({Key key}) : super(key: key);

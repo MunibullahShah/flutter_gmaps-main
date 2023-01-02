@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter_gmaps/constants.dart';
 import 'package:flutter_gmaps/screens/contact.dart';
 
-class Practicee extends StatelessWidget {
-  const Practicee({Key key}) : super(key: key);
+class AboutUsScreen extends StatelessWidget {
+  const AboutUsScreen({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -78,7 +78,8 @@ class Practicee extends StatelessWidget {
                                           Navigator.push(
                                             context,
                                             MaterialPageRoute(
-                                                builder: (context) => abc()),
+                                                builder: (context) =>
+                                                    ContactScreen()),
                                           ),
                                         },
                                         child: Padding(
