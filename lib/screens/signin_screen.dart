@@ -203,6 +203,7 @@ class _SignInState extends State<SignIn> {
           );
   }
 
+
   AuthMethods authMethods = AuthMethods();
   TextEditingController userNameController = TextEditingController();
   TextEditingController emailController = TextEditingController();
